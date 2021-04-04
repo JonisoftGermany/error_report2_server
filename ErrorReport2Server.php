@@ -112,9 +112,9 @@ final class ErrorReport2Server extends Controller
 		return $this->returnSuccess();
 	}
 
-	private function prepareJsonInsertion(array $json_structure) : ?string
+	private function prepareJsonInsertion(?array $json_structure) : ?string
 	{
-		if ($json_structure === null) {
+		if ($json_structure === null || \count($json_structure) === 0) {
 			return null;
 		}
 
