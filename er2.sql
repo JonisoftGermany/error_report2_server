@@ -1,5 +1,5 @@
 -- Error Report 2 Module
--- Version 2.0.0
+-- Version 2.0.1
 
 
 CREATE TABLE ErrorReport2 (
@@ -25,7 +25,6 @@ CREATE TABLE ErrorReport2 (
 	`request_path` varchar(255) NOT NULL,
 	`request_cli` tinyint unsigned NOT NULL COMMENT 'BOOL',
 	`request_secure_connection` tinyint unsigned NOT NULL COMMENT 'BOOL',
-	`general` text NOT NULL,
 	`environment` text,
 	`database` text,
 	`cookies` text,

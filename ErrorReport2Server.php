@@ -13,11 +13,11 @@ use SPFW\system\routing\Request;
  * ErrorReport2 Server
  *
  * @package ErrorReport2
- * @version 2.0.0
+ * @version 2.0.1
  */
 final class ErrorReport2Server extends Controller
 {
-	private const ER2_VERSION = '2.0.0';
+	private const ER2_VERSION = '2.0.1';
 
 	private const ERROR_RESPONSE_CODE = 400;
 	private const SUCCESS_RESPONSE_CODE = 201;
@@ -112,9 +112,9 @@ final class ErrorReport2Server extends Controller
 		return $this->returnSuccess();
 	}
 
-	private function prepareJsonInsertion(array $json_structure) : ?string
+	private function prepareJsonInsertion(?array $json_structure) : ?string
 	{
-		if ($json_structure === null) {
+		if ($json_structure === null || \count($json_structure) === 0) {
 			return null;
 		}
 
