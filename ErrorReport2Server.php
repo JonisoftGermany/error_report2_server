@@ -13,11 +13,11 @@ use SPFW\system\routing\Request;
  * ErrorReport2 Server
  *
  * @package ErrorReport2
- * @version 2.0.1
+ * @version 2.0.2
  */
 final class ErrorReport2Server extends Controller
 {
-	private const ER2_VERSION = '2.0.1';
+	private const ER2_VERSION = '2.0.2';
 
 	private const ERROR_RESPONSE_CODE = 400;
 	private const SUCCESS_RESPONSE_CODE = 201;
