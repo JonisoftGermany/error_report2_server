@@ -1,5 +1,5 @@
 -- Error Report 2 Module
--- Version 2.0.1
+-- Version 2.0.2
 
 
 CREATE TABLE ErrorReport2 (
@@ -17,7 +17,7 @@ CREATE TABLE ErrorReport2 (
 	`php_version` varchar(20) NOT NULL,
 	`php_mode` varchar(30) NOT NULL,
 	`php_mem_usage` bigint unsigned NOT NULL,
-	`debug_mode` tinyint unsigned NOT NULL COMMENT 'BOOL',
+	`debug_mode` tinyint unsigned COMMENT 'BOOL',
 	`request_method` enum('CONNECT', 'DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'POST', 'PUT', 'TRACE') NOT NULL,
 	`request_domain` varchar(255) NOT NULL,
 	`request_subdomain` varchar(255) NOT NULL,
