@@ -49,6 +49,12 @@ __Example for 6.:__
 $config->setER2Config((new \ErrorReport2\ErrorReport2ServerConfig())->addToken('3915753d8765a0'));
 ```
 
+## Update
+When ER2 is included as git submodule, update the submodule.
+Some updates come with database structure changes.
+The database updates (sql batch files) can be found in db-directory.
+They must be executed in the database manually.
+
 ## Configuration
 
 ### Required configuration
