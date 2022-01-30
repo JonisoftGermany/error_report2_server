@@ -13,11 +13,13 @@ use SPFW\system\routing\Request;
  * ErrorReport2 Server
  *
  * @package ErrorReport2
- * @version 2.0.1
+ * @version 2.0.2
  */
 final class ErrorReport2Server extends Controller
 {
-	private const ER2_VERSION = '2.0.1';
+	private const ER2_VERSION = '2.0.2';
+
+	public const REQUIRED_DATABASE_VERSION = 2;
 
 	private const ERROR_RESPONSE_CODE = 400;
 	private const SUCCESS_RESPONSE_CODE = 201;
@@ -60,6 +62,15 @@ final class ErrorReport2Server extends Controller
 		}
 
 		$this->config = $er2_server_config;
+
+		if (!self::checkDatabaseVersion()) {
+			throw new \RuntimeException('Unmatching database version');
+		}
+	}
+
+	public static function checkDatabaseVersion() : bool
+	{
+		return ErrorReport2::databaseTableVersion() === self::REQUIRED_DATABASE_VERSION;
 	}
 
 	private function checkHttpMethod(Request $request) : void
