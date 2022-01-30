@@ -33,4 +33,4 @@ CREATE TABLE ErrorReport2 (
 	`session` text,
 	`errors` text,
 	`throwable` text
-) ENGINE = InnoDB;
+) ENGINE = InnoDB, COMMENT = 'er2-db-vers:2';
