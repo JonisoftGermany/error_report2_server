@@ -5,12 +5,13 @@ Clients send error and exception logs to an API.
 
 ## Requirements 
 
-* SPFW >=1.3.0,
+* SPFW >=2.0.0,
 * PHP >=7.4 and
 * MySQL >= 5.7 (or Maria DB >= 10.1).
 
 __Note:__
-While the client requires a minimum SPFW version 1.0.0, the serverside requires SPFW 1.3.0 or newer.
+The client is available for SPFW version 2.x.x and 1.x.x (separate versions for SPFW 1 and 2).
+The serverside requires SPFW 1.3.0 for ER2 Version 2.0.x or SPFW 2.x.x for ER2 Version 2.1.x and newer.
 
 ## Installation
 

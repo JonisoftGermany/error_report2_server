@@ -1,5 +1,6 @@
 -- Error Report 2 Module
--- Version 2.0.2
+-- Version 2.1.0
+-- Database structure version 3
 
 
 CREATE TABLE ErrorReport2 (
@@ -8,6 +9,7 @@ CREATE TABLE ErrorReport2 (
 	`service_id` varchar(50),
 	`er2_client_version` varchar(11) NOT NULL,
 	`er2_server_version` varchar(11) NOT NULL,
+	`er2_protocol_version` smallint unsigned NOT NULL,
 	`session_id` varchar(128) NOT NULL,
 	`client_timestamp` datetime NOT NULL,
 	`host_name` varchar(100) NOT NULL,
@@ -17,6 +19,7 @@ CREATE TABLE ErrorReport2 (
 	`php_version` varchar(20) NOT NULL,
 	`php_mode` varchar(30) NOT NULL,
 	`php_mem_usage` bigint unsigned NOT NULL,
+	`environment_name` varchar(200),
 	`debug_mode` tinyint unsigned COMMENT 'BOOL',
 	`request_method` enum('CONNECT', 'DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'POST', 'PUT', 'TRACE') NOT NULL,
 	`request_domain` varchar(255) NOT NULL,
@@ -33,4 +36,4 @@ CREATE TABLE ErrorReport2 (
 	`session` text,
 	`errors` text,
 	`throwable` text
-) ENGINE = InnoDB, COMMENT = 'er2-db-vers:2';
+) ENGINE = InnoDB, COMMENT = 'er2-db-vers:3';

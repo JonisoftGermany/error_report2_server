@@ -4,7 +4,7 @@ namespace ErrorReport2;
 
 use SPFW\system\config\Config;
 use SPFW\system\Controller;
-use SPFW\system\JsonOutput;
+use SPFW\system\output\JsonOutput;
 use SPFW\system\routing\PostRequest;
 use SPFW\system\routing\Request;
 
@@ -13,13 +13,13 @@ use SPFW\system\routing\Request;
  * ErrorReport2 Server
  *
  * @package ErrorReport2
- * @version 2.0.2
+ * @version 2.1.0
  */
 final class ErrorReport2Server extends Controller
 {
-	private const ER2_VERSION = '2.0.2';
+	private const ER2_VERSION = '2.1.0';
 
-	public const REQUIRED_DATABASE_VERSION = 2;
+	public const REQUIRED_DATABASE_VERSION = 3;
 
 	private const ERROR_RESPONSE_CODE = 400;
 	private const SUCCESS_RESPONSE_CODE = 201;
@@ -147,6 +147,7 @@ final class ErrorReport2Server extends Controller
 				'service_id'			=> $json_structure['authentication']['service_id'],
 				'er2_client_version'	=> $json_structure['authentication']['er2_version'],
 				'er2_server_version'	=> self::ER2_VERSION,
+				'er2_protocol_version'	=> $json_structure['authentication']['er2_protocol_version'] ?? 1,
 				'session_id'			=> $json_structure['general']['er2_session_id'],
 				'client_timestamp'		=> \DateTime::createFromFormat('Y-m-d\TH:i:s', $json_structure['general']['timestamp']),
 				'host_name'				=> $json_structure['general']['host_name'],
@@ -156,6 +157,7 @@ final class ErrorReport2Server extends Controller
 				'php_version'			=> $json_structure['general']['php_version'],
 				'php_mode'				=> $json_structure['general']['php_mode'],
 				'php_mem_usage'			=> $json_structure['general']['php_mem_usage'],
+				'environment_name'		=> $json_structure['general']['environment_name'] ?? null,
 				'debug_mode'			=> $json_structure['general']['debug_mode'],
 				'request_method'		=> $json_structure['request']['method'],
 				'request_domain'		=> $json_structure['request']['domain'],

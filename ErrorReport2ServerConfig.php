@@ -2,16 +2,14 @@
 
 namespace ErrorReport2;
 
-use SPFW\system\config\IConfig;
-
 
 /**
  * ErrorReport2 Server Configuration
  *
  * @package ErrorReport2
- * @version 2.0.0
+ * @version 2.1.0
  */
-final class ErrorReport2ServerConfig implements IConfig
+final class ErrorReport2ServerConfig
 {
 	/** @var string[] $allowed_token */
 	private array $allowed_token = [];
@@ -28,7 +26,7 @@ final class ErrorReport2ServerConfig implements IConfig
 		return \in_array($token, $this->allowed_token, true);
 	}
 
-	public function checkConfig(bool $strict = false) : bool
+	public function checkConfig() : bool
 	{
 		return true;
 	}
