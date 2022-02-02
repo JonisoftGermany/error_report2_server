@@ -4,7 +4,7 @@ namespace ErrorReport2;
 
 use SPFW\system\config\Config;
 use SPFW\system\Controller;
-use SPFW\system\JsonOutput;
+use SPFW\system\output\JsonOutput;
 use SPFW\system\routing\PostRequest;
 use SPFW\system\routing\Request;
 
