@@ -9,7 +9,7 @@ CREATE TABLE ErrorReport2 (
 	`service_id` varchar(50),
 	`er2_client_version` varchar(11) NOT NULL,
 	`er2_server_version` varchar(11) NOT NULL,
-	`er2_protocol_version` smallint unsigned,
+	`er2_protocol_version` smallint unsigned NOT NULL,
 	`session_id` varchar(128) NOT NULL,
 	`client_timestamp` datetime NOT NULL,
 	`host_name` varchar(100) NOT NULL,
