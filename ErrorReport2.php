@@ -9,7 +9,7 @@ use SPFW\system\storage\SuperStorage;
  * ErrorReport2 Model
  *
  * @package ErrorReport2
- * @version 2.1.1
+ * @version 2.1.2
  */
 final class ErrorReport2 extends SuperStorage
 {
@@ -19,7 +19,7 @@ final class ErrorReport2 extends SuperStorage
 		$database = $storage_engine->database();
 		$database_name = $storage_engine->database()->getDatabaseConfig()->getDatabase();
 		$table_name = $storage_engine->tableName();
-		$query = 'SHOW TABLE STATUS FROM `' . $database_name . '` LIKE ' . $database->escapeTableName($table_name);
+		$query = 'SHOW TABLE STATUS FROM `' . $database_name . '` LIKE "' . $table_name . '"';
 
 		$results = $database->query($query);
 		if ($results = mysqli_fetch_object($results)) {
