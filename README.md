@@ -13,6 +13,15 @@ __Note:__
 The client is available for SPFW version 2.x.x and 1.x.x (separate versions for SPFW 1 and 2).
 The serverside requires SPFW 1.3.0 for ER2 Version 2.0.x or SPFW 2.x.x for ER2 Version 2.1.x and newer.
 
+### SPFW compatibility table
+
+|SPFW version|ER2 version|note|
+|---|---|---|
+|1.0.0-1.x.x|2.0.x|Still supported :-)|
+|2.0.0-2.0.x|2.1.x|Still supported :-)|
+|>2.1.x     |2.2.x|Not yet released|
+
+
 ## Installation
 
 1. Include this git-project as submodule in your modules-directory,
