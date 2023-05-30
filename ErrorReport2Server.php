@@ -2,8 +2,9 @@
 
 namespace ErrorReport2;
 
-use SPFW\system\config\Config;
 use SPFW\system\Controller;
+use SPFW\system\Core;
+use SPFW\system\CoreException;
 use SPFW\system\output\JsonOutput;
 use SPFW\system\routing\PostRequest;
 use SPFW\system\routing\Request;
@@ -13,11 +14,11 @@ use SPFW\system\routing\Request;
  * ErrorReport2 Server
  *
  * @package ErrorReport2
- * @version 2.1.2
+ * @version 2.2.0
  */
 final class ErrorReport2Server extends Controller
 {
-	private const ER2_VERSION = '2.1.2';
+	private const ER2_VERSION = '2.2.0';
 
 	public const REQUIRED_DATABASE_VERSION = 3;
 
@@ -44,18 +45,23 @@ final class ErrorReport2Server extends Controller
 	{
 		parent::__construct( $method_name, $request);
 
-		$global_config = Config::get();
-		if ($global_config === null) {
-			throw new \RuntimeException('Unknown global configuration');
+		try {
+			$global_environment = Core::activeInstance()->getEnvironment();
+		} catch (CoreException $e) {
+			throw new \RuntimeException('No active core instance');
 		}
 
-		$config_traits = class_uses($global_config);
+		if ($global_environment === null) {
+			throw new \RuntimeException('Unknown active environment');
+		}
+
+		$config_traits = class_uses($global_environment);
 		if (!\in_array(ErrorReport2ServerConfigTrait::class, $config_traits, true)) {
 			throw new \RuntimeException('Unknown global configuration');
 		}
 
 		/** @noinspection PhpUndefinedMethodInspection */
-		$er2_server_config = $global_config->getER2Config();
+		$er2_server_config = $global_environment->getER2Config();
 
 		if ($er2_server_config === null) {
 			throw new \RuntimeException('Undefined ER2 configuration');
